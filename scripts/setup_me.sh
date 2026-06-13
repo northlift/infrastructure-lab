@@ -12,7 +12,7 @@ fi
 USERNAME="adminsetup"
 SSH_CONFIG="/etc/ssh/sshd_config"
 SSH_NEEDS_RESTART=0
-GITHUB_USER="Upwind1647"
+GITHUB_USER="northlift"
 GITHUB_KEYS_URL="https://github.com/${GITHUB_USER}.keys"
 APP_PORT=8000
 

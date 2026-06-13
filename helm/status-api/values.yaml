@@ -55,7 +55,7 @@ deployEvent:
   hookImage: gcr.io/go-containerregistry/crane:debug
 
 image:
-  repository: ghcr.io/upwind1647/status-api
+  repository: ghcr.io/northlift/status-api
   tag: "00280f7"
   pullPolicy: IfNotPresent
 

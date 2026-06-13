@@ -1,9 +1,9 @@
 # Infrastructure Lab
 
-[![Build & Smoke Test](https://github.com/Upwind1647/infrastructure-lab/actions/workflows/docker-builder.yml/badge.svg)](https://github.com/Upwind1647/infrastructure-lab/actions/workflows/docker-builder.yml)
-[![Cloudflare IaC](https://github.com/Upwind1647/infrastructure-lab/actions/workflows/cloudflare-iac.yml/badge.svg)](https://github.com/Upwind1647/infrastructure-lab/actions/workflows/cloudflare-iac.yml)
-[![Docs](https://github.com/Upwind1647/infrastructure-lab/actions/workflows/publish_docs.yml/badge.svg)](https://northlift.github.io/infrastructure-lab/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Upwind1647/infrastructure-lab/blob/main/LICENSE)
+[![Build & Smoke Test](https://github.com/northlift/infrastructure-lab/actions/workflows/docker-builder.yml/badge.svg)](https://github.com/northlift/infrastructure-lab/actions/workflows/docker-builder.yml)
+[![Cloudflare IaC](https://github.com/northlift/infrastructure-lab/actions/workflows/cloudflare-iac.yml/badge.svg)](https://github.com/northlift/infrastructure-lab/actions/workflows/cloudflare-iac.yml)
+[![Docs](https://github.com/northlift/infrastructure-lab/actions/workflows/publish_docs.yml/badge.svg)](https://northlift.github.io/infrastructure-lab/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/northlift/infrastructure-lab/blob/main/LICENSE)
 
 This repository serves as a project to showcase modern infrastructure provisioning, security hardening, and cloud-native deployments. It is designed to be fully reproducible, secure by default, and treated as Infrastructure as Code (IaC).
 
@@ -110,14 +110,14 @@ curl http://localhost:8000/health
 
 ```bash
 apt update && apt install -y curl \
-  && curl -O https://raw.githubusercontent.com/Upwind1647/infrastructure-lab/main/scripts/setup_me.sh \
+  && curl -O https://raw.githubusercontent.com/northlift/infrastructure-lab/main/scripts/setup_me.sh \
   && bash setup_me.sh
 ```
 
 **2. Deploy the application** *(as `adminsetup`)*
 
 ```bash
-git clone git@github.com:Upwind1647/infrastructure-lab.git && cd infrastructure-lab
+git clone git@github.com:northlift/infrastructure-lab.git && cd infrastructure-lab
 bash scripts/deploy.sh
 ```
 

@@ -55,7 +55,7 @@ The `latest` tag is strictly prohibited. Every image is tagged with the Git Shor
 
 ```bash
 SHORT_SHA=$(git rev-parse --short HEAD)
-IMAGE_TAG="ghcr.io/upwind1647/status-api:${SHORT_SHA}"
+IMAGE_TAG="ghcr.io/northlift/status-api:${SHORT_SHA}"
 ```
 
 ### 3.2 Resilient Smoke Testing

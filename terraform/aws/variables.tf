@@ -117,7 +117,7 @@ variable "github_actions_role_name" {
 variable "github_actions_sub_allowlist" {
   description = "Allowed OIDC subject patterns (sub claim) for GitHub role assumption"
   type        = list(string)
-  default     = ["repo:Upwind1647/infrastructure-lab:*"]
+  default     = ["repo:northlift/infrastructure-lab:*"]
 
   validation {
     condition     = !var.enable_github_actions_oidc || length(var.github_actions_sub_allowlist) > 0

@@ -31,7 +31,7 @@ resource "proxmox_virtual_environment_file" "cloud_config" {
             exec > >(tee /var/log/user-data.log) 2>&1
 
             echo "AdminBox Setup"
-            curl -fsSLO https://raw.githubusercontent.com/Upwind1647/infrastructure-lab/main/scripts/setup_me.sh
+            curl -fsSLO https://raw.githubusercontent.com/northlift/infrastructure-lab/main/scripts/setup_me.sh
             bash setup_me.sh
 
             echo "Docker install"

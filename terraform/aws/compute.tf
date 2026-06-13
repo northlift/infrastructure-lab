@@ -55,7 +55,7 @@ resource "aws_instance" "app_server" {
 
               echo "=== Fetching and executing setup_me.sh ==="
               apt-get update && apt-get install -y curl
-              curl -O https://raw.githubusercontent.com/Upwind1647/infrastructure-lab/main/scripts/setup_me.sh
+              curl -O https://raw.githubusercontent.com/northlift/infrastructure-lab/main/scripts/setup_me.sh
               bash setup_me.sh
               EOF
 

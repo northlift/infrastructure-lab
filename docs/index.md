@@ -90,7 +90,7 @@ lxc exec admin-box -- bash /root/setup_me.sh
 ssh adminsetup@<container-ip>
 
 # 3. Clone the repository and run the automated deployment
-git clone https://github.com/Upwind1647/infrastructure-lab.git
+git clone https://github.com/northlift/infrastructure-lab.git
 cd infrastructure-lab
 bash scripts/deploy.sh
 

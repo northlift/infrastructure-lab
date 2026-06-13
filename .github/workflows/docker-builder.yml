@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE_NAME: ghcr.io/upwind1647/status-api
+  IMAGE_NAME: ghcr.io/northlift/status-api
 
 jobs:
   build-test-scan:
