@@ -46,7 +46,7 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.env.databaseUrlSecret.name | quote }}
                   key: {{ .Values.env.databaseUrlSecret.key | quote }}
-                  optional: true
+                  optional: false
             {{- else if .Values.env.databaseUrl }}
             - name: DATABASE_URL
               value: {{ .Values.env.databaseUrl | quote }}
@@ -57,7 +57,6 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.env.deployEventTokenSecret.name | quote }}
                   key: {{ .Values.env.deployEventTokenSecret.key | quote }}
-                  optional: true
             {{- end }}
           resources:
             {{ toYaml .Values.resources | nindent 12 }}

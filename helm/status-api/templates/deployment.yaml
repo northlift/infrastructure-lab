@@ -48,7 +48,7 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.env.databaseUrlSecret.name | quote }}
                   key: {{ .Values.env.databaseUrlSecret.key | quote }}
-                  optional: true
+                  optional: false
             {{- else if .Values.env.databaseUrl }}
             - name: DATABASE_URL
               value: {{ .Values.env.databaseUrl | quote }}
