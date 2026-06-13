@@ -92,6 +92,7 @@ jobs:
           IMAGE_TAG="${{ steps.build_image.outputs.image_tag }}"
           docker run -d --name test-api -p 8000:8000 \
             -e APP_ENV=ci \
+            -e DATABASE_URL="sqlite:///:memory:" \
             "${IMAGE_TAG}"
 
           # Wait up to 20s for healthy response
