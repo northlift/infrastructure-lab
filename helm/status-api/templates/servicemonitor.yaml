@@ -1,0 +1,25 @@
+{{- if .Values.serviceMonitor.enabled }}
+{{- $serviceMonitorLabels := .Values.serviceMonitor.labels | default dict }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Release.Name }}-status-api
+  labels:
+    app: {{ .Chart.Name }}
+    {{- if not (hasKey $serviceMonitorLabels "release") }}
+    release: {{ .Release.Name }}
+    {{- end }}
+    {{- with $serviceMonitorLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+      release: {{ .Release.Name }}
+  endpoints:
+    - targetPort: {{ .Values.service.port }}
+      path: {{ .Values.serviceMonitor.path }}
+      interval: {{ .Values.serviceMonitor.interval }}
+      scrapeTimeout: {{ .Values.serviceMonitor.scrapeTimeout }}
+{{- end }}
