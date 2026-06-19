@@ -23,7 +23,7 @@ case "$REMOTE_URL" in
 esac
 
 # Read stdin for refs being pushed
-HARNESS_PATTERNS="^\.pi/|^\.ai/|^AGENTS\.md$|^PLAYBOOK\.md$"
+HARNESS_PATTERNS="^\.pi/|^\.ai/|^\.agents/|^AGENTS\.md$|^PLAYBOOK\.md$"
 
 while read LOCAL_REF LOCAL_OID REMOTE_REF REMOTE_OID; do
   # Skip deleted branches
