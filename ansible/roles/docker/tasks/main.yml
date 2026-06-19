@@ -1,0 +1,39 @@
+---
+- name: Install prerequisites for deb822_repository
+  ansible.builtin.apt:
+    name:
+      - debian-archive-keyring
+      - gnupg
+    state: present
+
+- name: Add Docker APT source
+  ansible.builtin.deb822_repository:
+    name: docker
+    types: deb
+    uris: https://download.docker.com/linux/debian
+    suites: "{{ ansible_distribution_release }}"
+    components:
+      - stable
+    signed_by: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: Update apt cache after adding Docker repo
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Install Docker
+  ansible.builtin.apt:
+    name: "{{ docker_packages }}"
+    state: present
+
+- name: Ensure Docker service is running
+  ansible.builtin.systemd:
+    name: docker
+    state: "{{ docker_service_state }}"
+    enabled: "{{ docker_service_enabled }}"
+
+- name: Add VM login user to docker group
+  ansible.builtin.user:
+    name: "{{ forgejo_vm_user | default('adminsetup') }}"
+    groups: docker
+    append: true

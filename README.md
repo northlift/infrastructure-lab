@@ -1,3 +1,11 @@
+---
+title: "Infrastructure Lab README"
+doc_type: overview
+status: active
+summary: "Einstiegspunkt für das Repository. Beschreibt Architektur, Setup und Ziele des IaC- und GitOps-Labs."
+related_components: ["aws", "proxmox", "cloudflare", "argocd"]
+---
+
 # Infrastructure Lab
 
 [![Build & Smoke Test](https://github.com/northlift/infrastructure-lab/actions/workflows/docker-builder.yml/badge.svg)](https://github.com/northlift/infrastructure-lab/actions/workflows/docker-builder.yml)
@@ -8,6 +16,21 @@
 This repository serves as a project to showcase modern infrastructure provisioning, security hardening, and cloud-native deployments. It is designed to be fully reproducible, secure by default, and treated as Infrastructure as Code (IaC).
 
 > **Full documentation:** [northlift.github.io/infrastructure-lab](https://northlift.github.io/infrastructure-lab/)
+>
+> **AI Agents:** Please read [AGENTS.md](AGENTS.md) and the guidelines in the `.ai/` directory before proposing changes.
+
+## For AI Agents
+
+This repository is designed to be a **second-brain foundation for agentic coding**. The agent harness lives in three places:
+
+| Location | Purpose |
+|----------|---------|
+| `AGENTS.md` | Agent instructions: directory roles, risk levels, validation, known pitfalls |
+| `.ai/` | Guidance files: `SAFE_OPERATIONS.md`, `TERRAFORM_RULES.md`, `STYLEGUIDE.md`, `KNOWLEDGE_SCHEMA.md` |
+| `.pi/skills/` | Domain skills loaded on-demand: `proxmox-iac`, `cloudflare-tunnel`, `docker-ansible`, `ansible-patterns` |
+| `.pi/prompts/` | Reusable prompt templates: `plan.md`, `phase-implement.md`, `phase-review.md`, `phase-runbook.md` |
+
+**Post-mortem feedback loop:** When a new post-mortem is added to `docs/`, review `.pi/skills/` and `AGENTS.md` and update any affected pitfall entries. This keeps incident lessons in sync with agent behavior.
 
 ---
 
@@ -58,6 +81,8 @@ graph LR
 | 11 | **Cloudflare IaC** | Tunnel DNS + Access policy lifecycle via OpenTofu | Done |
 | 12 | **Hybrid GitOps & EKS FinOps** | Hub-and-Spoke ArgoCD, EKS spoke, budget guardrails, plan-only CI | Done |
 | 13 | **Full-Picture Observability** | K3s whitebox telemetry + AWS blackbox canaries with unified alerting | Done |
+| 14 | **Progressive Delivery** | Argo Rollouts, deployment event ingestion, DORA reporting | Done |
+
 
 ---
 
@@ -263,3 +288,4 @@ Detailed Architecture Decision Records (ADRs) are maintained in the [documentati
 * **[ADR-020](https://northlift.github.io/infrastructure-lab/phase12/adr-020-eks-provisioning-finops-strategy/):** EKS Provisioning and FinOps Strategy
 * **[ADR-021](https://northlift.github.io/infrastructure-lab/phase12/adr-021-ingress-controller-strategy-per-environment/):** Ingress Controller Strategy per Environment
 * **[ADR-022](https://northlift.github.io/infrastructure-lab/phase13/adr-022-observability-strategy/):** Observability Strategy for Hybrid GitOps
+* **[ADR-023](https://northlift.github.io/infrastructure-lab/phase14/adr-023-progressive-delivery-strategy/):** Progressive Delivery Strategy

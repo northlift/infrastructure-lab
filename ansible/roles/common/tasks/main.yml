@@ -1,0 +1,52 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Install baseline packages
+  ansible.builtin.apt:
+    name: "{{ common_packages }}"
+    state: present
+
+- name: Enable qemu-guest-agent
+  ansible.builtin.systemd:
+    name: qemu-guest-agent
+    enabled: true
+    state: started
+
+- name: Harden SSH — disable root login
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#?PermitRootLogin"
+    line: "PermitRootLogin {{ common_ssh_permit_root_login }}"
+    validate: "sshd -t -f %s"
+  notify: Restart sshd
+
+- name: Harden SSH — disable password authentication
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#?PasswordAuthentication"
+    line: "PasswordAuthentication {{ common_ssh_password_authentication }}"
+    validate: "sshd -t -f %s"
+  notify: Restart sshd
+
+- name: Configure UFW — default deny inbound
+  community.general.ufw:
+    direction: incoming
+    policy: deny
+
+- name: Configure UFW — default allow outbound
+  community.general.ufw:
+    direction: outgoing
+    policy: allow
+
+- name: Configure UFW — allow SSH
+  community.general.ufw:
+    rule: allow
+    port: "{{ common_ssh_port }}"
+    proto: tcp
+
+- name: Enable UFW
+  community.general.ufw:
+    state: enabled

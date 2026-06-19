@@ -1,4 +1,4 @@
-# ADR 006: Lightweight Kubernetes (K3s) on Proxmox VM
+g# ADR 006: Lightweight Kubernetes (K3s) on Proxmox VM
 
 ## Context
 We need a Kubernetes environment for our FastAPI application. The Proxmox host is resource-constrained (Ryzen 5, 4 Cores). We evaluated using standard Kubernetes (K8s) versus K3s, and LXC containers versus a full Virtual Machine (VM).

@@ -1,0 +1,18 @@
+# Common role defaults
+
+common_packages:
+  - curl
+  - git
+  - vim
+  - htop
+  - ufw
+  - qemu-guest-agent
+  - unattended-upgrades
+  - apt-transport-https
+  - ca-certificates
+  - gnupg
+  - lsb-release
+
+common_ssh_permit_root_login: "no"
+common_ssh_password_authentication: "no"
+common_ssh_port: 22

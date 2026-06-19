@@ -69,8 +69,15 @@ Extend the platform into a Hub-and-Spoke multi-cluster model where on-prem ArgoC
 
 ### Phase 13: Full-Picture Observability
 Add a constrained in-cluster whitebox stack (Prometheus, Loki, Grafana) and a lifecycle-coupled AWS blackbox canary layer for external uptime validation.
-- [Observability Runbook](phase13/observability.md)
+- [Observability Concept](phase13/observability.md)
+- [Observability Runbook](phase13/observability-runbook.md)
 - [ADR-022: Observability Strategy for Hybrid GitOps](phase13/adr-022-observability-strategy.md)
+
+### Phase 14: Progressive Delivery
+Add Argo Rollouts, deployment event ingestion, and DORA reporting for metric-gated delivery.
+- [Progressive Delivery Concept](phase14/progressive-delivery.md)
+- [Progressive Delivery Runbook](phase14/progressive-delivery-runbook.md)
+- [ADR-023: Progressive Delivery Strategy](phase14/adr-023-progressive-delivery-strategy.md)
 
 ---
 
