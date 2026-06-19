@@ -1,11 +1,3 @@
----
-title: "Infrastructure Lab README"
-doc_type: overview
-status: active
-summary: "Einstiegspunkt für das Repository. Beschreibt Architektur, Setup und Ziele des IaC- und GitOps-Labs."
-related_components: ["aws", "proxmox", "cloudflare", "argocd"]
----
-
 # Infrastructure Lab
 
 [![Build & Smoke Test](https://github.com/northlift/infrastructure-lab/actions/workflows/docker-builder.yml/badge.svg)](https://github.com/northlift/infrastructure-lab/actions/workflows/docker-builder.yml)
