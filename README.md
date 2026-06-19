@@ -8,21 +8,6 @@
 This repository serves as a project to showcase modern infrastructure provisioning, security hardening, and cloud-native deployments. It is designed to be fully reproducible, secure by default, and treated as Infrastructure as Code (IaC).
 
 > **Full documentation:** [northlift.github.io/infrastructure-lab](https://northlift.github.io/infrastructure-lab/)
->
-> **AI Agents:** Please read [AGENTS.md](AGENTS.md) and the guidelines in the `.ai/` directory before proposing changes.
-
-## For AI Agents
-
-This repository is designed to be a **second-brain foundation for agentic coding**. The agent harness lives in three places:
-
-| Location | Purpose |
-|----------|---------|
-| `AGENTS.md` | Agent instructions: directory roles, risk levels, validation, known pitfalls |
-| `.ai/` | Guidance files: `SAFE_OPERATIONS.md`, `TERRAFORM_RULES.md`, `STYLEGUIDE.md`, `KNOWLEDGE_SCHEMA.md` |
-| `.pi/skills/` | Domain skills loaded on-demand: `proxmox-iac`, `cloudflare-tunnel`, `docker-ansible`, `ansible-patterns` |
-| `.pi/prompts/` | Reusable prompt templates: `plan.md`, `phase-implement.md`, `phase-review.md`, `phase-runbook.md` |
-
-**Post-mortem feedback loop:** When a new post-mortem is added to `docs/`, review `.pi/skills/` and `AGENTS.md` and update any affected pitfall entries. This keeps incident lessons in sync with agent behavior.
 
 ---
 
